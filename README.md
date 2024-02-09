@@ -1,3 +1,3 @@
 # fcs-html-template
-### Name:
-### Period:
+### Name: Janice Chan
+### Period: 9
