@@ -1,0 +1,15 @@
+h1 {
+font-size: 25px;
+color: cadetblue;
+text-align: center;
+}
+
+li {
+background-color: rgb(252 106 155 / 25%);
+border: 1px dashed rgb(252 106 155 / 40%);
+}
+
+p {
+width: 50%;
+height: 5px
+}
