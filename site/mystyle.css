@@ -1,6 +1,51 @@
+body {
+  background-color: rgb(47 163 150 / 20%)
+}
+
 h1 {
-  align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
   color: rgb(47 163 150);
-  font: monospace;
   text-decoration: underline;
+  margin-top: 50px;
+}
+
+nav {
+  background-color: rgb(47 163 150);
+  border: solid 3px;
+  border-color: rgb(47 163 150);
+  align-content: space-evenly;
+}
+
+.navbar {
+  display: inline;
+  padding: 5px;
+  border: solid 1px;
+  border-color: white;
+}
+
+.cp {
+  background-color: white;
+  display: inline;
+  border: solid 1px;
+  border-color: white;
+  padding: 5px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#hpintro {
+  width: 50%;
+  text-align: center;
+  align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h2 {
+  text-align: center;
 }
