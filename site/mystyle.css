@@ -18,10 +18,10 @@ nav {
   align-content: space-evenly;
   text-align: center;
   width: 90%;
-  overflow: hidden;
   align: center;
   margin-left: auto;
   margin-right: auto;
+  overflow: auto;
 }
 
 .navbar {
@@ -46,6 +46,10 @@ a {
   text-decoration: none;
 }
 
+body {
+  margin: 30px;
+}
+
 #hpintro {
   width: 50%;
   text-align: center;
@@ -63,4 +67,9 @@ img {
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+
+.linka {
+  text-decoration: underline;
+  color: blue;
 }
