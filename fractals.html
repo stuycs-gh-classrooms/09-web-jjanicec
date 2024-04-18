@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Janice's Fractals</title>
+  </head>
+
+  <body>
+
+  <div>
+    <h1>Koch Curve</h1>
+    <p>
+      Basic curve <code>koch_curve(t, 3, 50)</code>
+    </p>
+  <!-- add image -->
+  <p>
+    Here is a modified Koch curve where the length and color of each stroke is random. <code>koch_modified(t, 3, 50)</code>
+  </p>
+  <!-- add image -->
+  <pre>
+    <code>
+      def koch_modified(t, depth, size):
+          if (depth == 1):
+              t.fd(random.randrange(size - 5, size + 5))
+          else:
+              koch_curve(t, depth-1, size * ((random.randrange(70, 100)) / 100))
+              t.lt(60)
+              koch_curve(t, depth-1, size * ((random.randrange(70, 100)) / 100))
+              t.rt(120)
+              koch_curve(t, depth-1, size * ((random.randrange(70, 100)) / 100))
+              t.lt(60)
+              koch_curve(t, depth-1, size * ((random.randrange(70, 100)) / 100))
+    </code>
+  </pre>
+</div>
+
+<div>
+  <h1>Sierpinksi Triangle</h1>
+  <p>
+      Basic triangle <code>sierpinski(t, 4, 100)</code>
+    </p>
+    <!-- add image -->
+  <p>
+    Here is a modified Koch curve where <!-- work on stupid code-->
+  </p>
+  <!-- add image -->
+  <pre>
+    <code>
+      <!-- code please -->
+    </code>
+  </pre>
+</div>
+
+<div>
+  <h1>Tree</h1>
+  <p>
+    Basic tree <code>tree(t, 5, 30, 45)</code>
+  </p>
+  <!-- add image-->
+  <p>
+    Here is a modified tree where the "leaves" are random colors and longer than the branches, and the tree has roots. There is also some variation in the length of the "leaves".
+    <code>tree_modified0(t, 5, 50, 30, 8)</code>
+  </p>
+  <!-- add image-->
+  <pre>
+    <code>
+def tree_m(t, depth, length, angle, width):
+    t.width(width)
+    if depth == 0:
+        t.color( (random.randrange(0, 255)), (random.randrange(0, 255)), (random.randrange(0, 255)) )
+        angle += random.randrange(-5, 5)
+        length += random.randrange(20, 50)
+        t.fd(length)
+        t.bk(length)
+        t.color("brown")
+    else:
+        t.color( "brown" )
+        t.fd(length)
+        t.rt(angle / 2)
+        tree_m(t, depth - 1, length, angle, width - 1)
+        t.lt(angle / 2)
+        tree_m(t, depth - 1, length, angle, width - 1)
+        t.lt(angle / 2)
+        tree_m(t, depth - 1, length, angle, width - 1)
+        t.rt(angle / 2)
+        t.bk(length)
+
+def tree_modified0(t, depth, length, angle, width):
+    tree_m(t, depth - 1, length, angle, width)
+    t.rt(180)
+    tree(t, depth - 1, length * 0.5, angle * 2)
+    </code>
+  </pre>
+</div>
+  </body>
+
+</html>
