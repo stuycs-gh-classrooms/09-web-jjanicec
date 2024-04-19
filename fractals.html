@@ -11,43 +11,81 @@
   <div>
     <h1>Koch Curve</h1>
     <p>
-      Basic curve <code>koch_curve(t, 3, 50)</code>
+      Here is a basic Koch curve. <code>koch_curve(t, 3, 50)</code>
     </p>
-  <!-- add image -->
+  <img src="koch_reg.png" alt="Basic Koch Curve">
   <p>
-    Here is a modified Koch curve where the length and color of each stroke is random. <code>koch_modified(t, 3, 50)</code>
+    Here is a modified Koch curve where the length, color, and width of each stroke is random. <code>koch_modified(t, 3, 50)</code>
   </p>
-  <!-- add image -->
+  <img src="koch_mod.png" alt="Modified Koch Curve">
   <pre>
     <code>
       def koch_modified(t, depth, size):
           if (depth == 1):
-              t.fd(random.randrange(size - 5, size + 5))
+              t.width(random.randrange(1, 5))
+              t.color( (random.randrange(0, 255)), (random.randrange(0, 255)), (random.randrange(0, 255)) )
+              t.fd(size + (random.randrange(-10, 10)))
           else:
-              koch_curve(t, depth-1, size * ((random.randrange(70, 100)) / 100))
+              koch_modified(t, depth-1, size)
               t.lt(60)
-              koch_curve(t, depth-1, size * ((random.randrange(70, 100)) / 100))
+              koch_modified(t, depth-1, size)
               t.rt(120)
-              koch_curve(t, depth-1, size * ((random.randrange(70, 100)) / 100))
+              koch_modified(t, depth-1, size)
               t.lt(60)
-              koch_curve(t, depth-1, size * ((random.randrange(70, 100)) / 100))
+              koch_modified(t, depth-1, size)
     </code>
   </pre>
 </div>
 
 <div>
-  <h1>Sierpinksi Triangle</h1>
+  <h1>Sierpinski Triangle</h1>
   <p>
-      Basic triangle <code>sierpinski(t, 4, 100)</code>
+      Here is a basic Sierpinski triangle. <code>sierpinski(t, 4, 200)</code>
     </p>
-    <!-- add image -->
+    <img src="sierp_reg.png" alt="Basic Sierpinski Triangle">
   <p>
-    Here is a modified Koch curve where <!-- work on stupid code-->
+    Here are 4 modified Sierpinski triangle where the base triangle is a right isosceles triangle. <code>sierp_modified0(t, 4, 100)</code>
   </p>
-  <!-- add image -->
+  <img src="sierp_mod.png" alt="Modified Sierpinski Triangle">
+  <p>
+    Here is a single modified Sierpinski triangle. <code>sierp_m(t, 4, 100)</code>
+  </p>
+  <img src="sierp_mod_sing.png" alt="Singular Modified Sierpinski Triangle">
   <pre>
     <code>
-      <!-- code please -->
+def rt_triangle(t, size):
+    t.lt(90)
+    t.fd(size)
+    t.rt(135)
+    t.fd(size * (2 ** (1 / 2)))
+    t.rt(135)
+    t.fd(size)
+    t.rt(180)
+
+def sierp_m(t, depth, size):
+    if depth == 1:
+        rt_triangle(t, size)
+    else:
+        sierp_m(t, depth-1, size/2)
+        t.fd(size/2)
+        sierp_m(t, depth-1, size/2)
+        t.bk(size/2)
+        t.lt(90)
+        t.fd(size/2)
+        t.rt(90)
+        sierp_m(t, depth-1, size/2)
+        t.lt(90)
+        t.bk(size/2)
+        t.rt(90)
+
+def sierp_modified0(t, depth, size):
+    sierp_m(t, depth, size)
+    t.rt(90)
+    sierp_m(t, depth, size)
+    t.rt(90)
+    sierp_m(t, depth, size)
+    t.rt(90)
+    sierp_m(t, depth, size)
     </code>
   </pre>
 </div>
@@ -55,14 +93,14 @@
 <div>
   <h1>Tree</h1>
   <p>
-    Basic tree <code>tree(t, 5, 30, 45)</code>
+    Here is a basic tree. <code>tree(t, 5, 30, 45)</code>
   </p>
-  <!-- add image-->
+  <img src="tree_reg.png" alt="Basic Tree">
   <p>
     Here is a modified tree where the "leaves" are random colors and longer than the branches, and the tree has roots. There is also some variation in the length of the "leaves".
     <code>tree_modified0(t, 5, 50, 30, 8)</code>
   </p>
-  <!-- add image-->
+  <img src="tree_mod.png" alt="Modified Tree">
   <pre>
     <code>
 def tree_m(t, depth, length, angle, width):
