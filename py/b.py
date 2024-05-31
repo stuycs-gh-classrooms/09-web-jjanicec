@@ -6,6 +6,21 @@ cgitb.enable()
 
 import cgi
 
+HTML_HEADER = """
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Hello</title>
+</head>
+"""
+
+HTML_FOOTER = """
+</body>
+</html>
+"""
+
 data = cgi.FieldStorage()
 terms = 'a,b,c,d'
 if ('terms' in data):
@@ -13,5 +28,9 @@ if ('terms' in data):
 defs = '1,2,3,4'
 if ('defs' in data):
     defs = data['defs'].value.split(',')
-    
-form = cgi.FieldStorage()
+
+html= HTML_HEADER
+#html+= '<br><a href="b.html">Try Again</a></br>'
+html+='<p>' + terms + '</p>' + '<p>' + defs + '</p>'
+html+= HTML_FOOTER
+print(html)
