@@ -22,15 +22,18 @@ HTML_FOOTER = """
 """
 
 data = cgi.FieldStorage()
-term = 'a,b,c,d'
-if ('term' in data):
-    terms = data['terms'].value.split(',')
+terms = 'a,b,c,d'
+if ('terms' in data):
+    terms = data['terms'].value
 defs = '1,2,3,4'
 if ('defs' in data):
-    def_list = data['defs'].value.split(',')
+    defs = data['defs'].value
+term_list = terms.split(',')
+def_list = defs.split(',')
 
 html= HTML_HEADER
 #html+= '<br><a href="b.html">Try Again</a></br>'
-html+='<p>', terms, '</p>' , '<p>' , def_list , '</p>'
+html+='<p>' + terms + '</p>' + '<p>' + defs + '</p>'
+html+='<p>', term_list, '</p>' , '<p>' , def_list , '</p>'
 html+= HTML_FOOTER
 print(html)
