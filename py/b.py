@@ -31,6 +31,6 @@ if ('defs' in data):
 
 html= HTML_HEADER
 #html+= '<br><a href="b.html">Try Again</a></br>'
-html+='<p>' + terms + '</p>' + '<p>' + defs + '</p>'
+html+='<p>', terms, '</p>' , '<p>' + defs , '</p>'
 html+= HTML_FOOTER
 print(html)
