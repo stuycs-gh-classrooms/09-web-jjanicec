@@ -41,3 +41,4 @@ html += f'<li>Defs: {defs}</li>'
 html += '</ul>'
 html += '<br><a href="hello.html">Try Again</a>'
 html += HTML_FOOTER
+print(html)
