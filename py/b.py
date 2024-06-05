@@ -21,19 +21,49 @@ HTML_FOOTER = """
 </html>
 """
 
-data = cgi.FieldStorage()
+data0 = cgi.FieldStorage()
 terms = 'a,b,c,d'
-if ('terms' in data):
-    terms = data['terms'].value
+if ('terms' in data0):
+    terms = data0['terms'].value
 defs = '1,2,3,4'
-if ('defs' in data):
-    defs = data['defs'].value
+if ('defs' in data0):
+    defs = data0['defs'].value
 term_list = terms.split(',')
 def_list = defs.split(',')
 
 html= HTML_HEADER
 #html+= '<br><a href="b.html">Try Again</a></br>'
-html+='<body>' + '<p>' + terms + '</p>' + '<p>' + defs + '</p>'
-html+='<p>' + str(term_list) + '</p>' + '<p>' + str(def_list) + '</p>'
+#html+='<body>' + '<p>' + terms + '</p>' + '<p>' + defs + '</p>'
+#html+='<p>' + str(term_list) + '</p>' + '<p>' + str(def_list) + '</p>'
+
+html+='''
+<form action="py/b.py" method="GET">
+Next Term <input type="checkbox" name="nextterm" value="yes">
+<br>
+<input type="submit" name="submit">
+<br>
+Show Def <input type="checkbox" name="showdef" value="show_def">
+<br>
+<input type="submit" name="submit">
+</form>
+'''
+
+#another form
+i = 0
+html+= '<p>' + str(term_list[i]) + '</p>'
+
+data1 = cgi.FieldStorage()
+next_term = 'no'
+if ('next_term' in data1):
+    next_term = data1['next_term'].value
+    if next_term == 'yes':
+        i += 1
+        html += '<p>' + str(term_list[i]) + '</p>'
+show_def = 'no_show'
+if ('show_def' in data1):
+    show_def = data1['show_def'].value
+    if show_def == 'show_def':
+        html += '<p>' + str(def_list[i]) + '</p>'
+
 html+= HTML_FOOTER
 print(html)
