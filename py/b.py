@@ -37,12 +37,13 @@ html= HTML_HEADER
 #html+='<p>' + str(term_list) + '</p>' + '<p>' + str(def_list) + '</p>'
 
 html+='''
+<body>
 <form action="py/b.py" method="GET">
-Next Term <input type="checkbox" name="nextterm" value="yes">
+Next Term <input type="checkbox" name="next_term" value="yes">
 <br>
 <input type="submit" name="submit">
 <br>
-Show Def <input type="checkbox" name="showdef" value="show_def">
+Show Def <input type="checkbox" name="show_def" value="show_def">
 <br>
 <input type="submit" name="submit">
 </form>
@@ -53,17 +54,21 @@ i = 0
 html+= '<p>' + str(term_list[i]) + '</p>'
 
 data1 = cgi.FieldStorage()
-next_term = 'no'
+next_term = 'yes'
 if ('next_term' in data1):
     next_term = data1['next_term'].value
     if next_term == 'yes':
         i += 1
         html += '<p>' + str(term_list[i]) + '</p>'
+        html += HTML_FOOTER
+        print(html)
 show_def = 'no_show'
 if ('show_def' in data1):
     show_def = data1['show_def'].value
     if show_def == 'show_def':
         html += '<p>' + str(def_list[i]) + '</p>'
+        html += HTML_FOOTER
+        print(html)
 
 html+= HTML_FOOTER
 print(html)
