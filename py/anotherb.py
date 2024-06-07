@@ -43,9 +43,12 @@ Next Term <input type="checkbox" name="next_term" value="yes">
 <br>
 Show Def <input type="checkbox" name="show_def" value="show_def">
 <br>
-<input type="hidden" name="terms" value="''' + terms + '''">
-<input type="hidden" name="defs" value="''' + defs + '''">
-<input type="hidden" name="index" value="''' + str(i) + '''">
+<input type="hidden" name="terms" value="
+''' + terms + '''">
+<input type="hidden" name="defs" value="'''
++ defs + '''">
+<input type="hidden" name="index" value="'''
++ str(i) + '''">
 <input type="submit" name="submit">
 </form>
 '''
@@ -60,7 +63,7 @@ if 'next_term' in data0 and data0['next_term'].value == 'yes':
         html += '<p>Next Term: ' + term_list[i] + '</p>'
     else:
         html += '<p>No more terms.</p>'
-elif 'show_def' in data0 and data0['show_def'].value == 'show_def':
+if 'show_def' in data0 and data0['show_def'].value == 'show_def':
     if i < len(def_list):
         html += '<p>Definition: ' + def_list[i] + '</p>'
 
