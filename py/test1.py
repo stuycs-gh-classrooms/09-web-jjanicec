@@ -43,14 +43,14 @@ Next Term <input type="checkbox" name="next_term" value="yes">
 <br>
 Show Def <input type="checkbox" name="show_def" value="show_def">
 <br>
-<input type="hidden" name="terms" value="
-''' + term_list +
-''' "> <input type="hidden" name="defs" value=" '''
+<input type="hidden" name="terms" value="'''
++ term_list +
+'''"> <input type="hidden" name="defs" value="'''
 + def_list +
-''' ">
-<input type="hidden" name="index" value=" '''
+'''">
+<input type="hidden" name="index" value="'''
 + str(i) +
-''' "> <input type="submit" name="submit">
+'''"> <input type="submit" name="submit">
 </form>
 '''
 
