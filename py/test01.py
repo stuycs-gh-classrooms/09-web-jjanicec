@@ -54,6 +54,7 @@ Show Def <input type="checkbox" name="show_def" value="show_def">
 html += '<p>Term: ' + term_list[i] + '</p>'
 
 # Process form submission
+# Maybe need to make a new python file for new form
 if 'next_term' in data0 and data0['next_term'].value == 'yes':
     i += 1
     if i < len(term_list):
