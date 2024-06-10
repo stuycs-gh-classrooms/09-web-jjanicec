@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!usr/bin/python
 print('Content-type: text/html\n')
 
 import cgitb
@@ -22,44 +22,14 @@ HTML_FOOTER = """
 """
 
 data0 = cgi.FieldStorage()
-terms = 'a,b,c,d'
-defs = '1,2,3,4'
-if 'terms' in data0:
-    terms = data0['terms'].value
-if 'defs' in data0:
-    defs = data0['defs'].value
 term_list = terms.split(',')
 def_list = defs.split(',')
 
-# Initialize index i
-i = 0
-if 'index' in data0:
-    i = int(data0['index'].value)
-
 html = HTML_HEADER
-html += '''
-<form action="/py/test01.py" method="GET">
-Next Term <input type="checkbox" name="next_term" value="yes">
-<br>
-Show Def <input type="checkbox" name="show_def" value="show_def">
-<br>
-<input type="hidden" name="terms" value="'''
-html += terms
-html += '''"><input type="hidden" name="defs" value="'''
-html += defs
-html += '''">
-<input type="hidden" name="index" value="'''
-html += str(i)
-html += '''">
-<input type="submit" name="submit" value="Submit">
-</form>
-'''
 
-# Show the current term
+#Show the current term
 html += '<p>Term: ' + term_list[i] + '</p>'
 
-# Process form submission
-# Maybe need to make a new python file for new form
 if 'next_term' in data0 and data0['next_term'].value == 'yes':
     i += 1
     if i < len(term_list):
