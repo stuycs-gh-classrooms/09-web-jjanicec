@@ -44,9 +44,9 @@ Next Term <input type="checkbox" name="next_term" value="yes">
 Show Def <input type="checkbox" name="show_def" value="show_def">
 <br>
 <input type="hidden" name="terms" value="'''
-+ term_list +
++ terms +
 '''"> <input type="hidden" name="defs" value="'''
-+ def_list +
++ defs +
 '''">
 <input type="hidden" name="index" value="'''
 + str(i) +
@@ -64,6 +64,7 @@ if 'next_term' in data0 and data0['next_term'].value == 'yes':
         html += '<p>Next Term: ' + term_list[i] + '</p>'
     else:
         html += '<p>No more terms.</p>'
+        i = len(term_list) - 1
 if 'show_def' in data0 and data0['show_def'].value == 'show_def':
     if i < len(def_list):
         html += '<p>Definition: ' + def_list[i] + '</p>'
