@@ -38,7 +38,7 @@ if 'index' in data0:
 
 html = HTML_HEADER
 html += '''
-<form action="/py/test1.py" method="GET">
+<form action="/py/test01.py" method="GET">
 Next Term <input type="checkbox" name="next_term" value="yes">
 <br>
 Show Def <input type="checkbox" name="show_def" value="show_def">
