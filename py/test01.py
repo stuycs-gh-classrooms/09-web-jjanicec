@@ -11,7 +11,8 @@ HTML_HEADER = """
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Hello</title>
+<title>Bad Quizlet</title>
+<link href="final.css" rel="stylesheet">
 </head>
 <body>
 """
