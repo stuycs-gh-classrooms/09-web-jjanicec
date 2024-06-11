@@ -54,6 +54,7 @@ Show Def <input type="checkbox" name="show_def">
 html += '<p>Term: ' + next(term_iter) + '</p>'
 #used to be term_list[i]
 
+'''
 # Process form submission
 # Maybe need to make a new python file for new form
 if 'next_term' in data0 and data0['next_term'].value == 'on':
@@ -70,9 +71,18 @@ if 'show_def' in data0 and data0['show_def'].value == 'on':
     if next(def_iter) != def_list[len(def_list) - 1]:
         html += '<p>Definition: ' + next(def_iter) + '</p>'
 #used to be def_list[i]
-
+'''
 # Update the hidden index value
 #html += '<input type="hidden" name="index" value="' + str(i) + '">'
+
+for term in term_list:
+    if 'next_term' in data0 and data0['next_term'].value == 'on':
+        html += '<p>Next Term: ' + term + '</p>'
+        print(html)
+for defs in def_list:
+    if 'show_def' in data0 and data['show_def'].value == 'on':
+        html += '<p>Definition: ' + defs + '</p>'
+        print(html)
 
 html += HTML_FOOTER
 print(html)
