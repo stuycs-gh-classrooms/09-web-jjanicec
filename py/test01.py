@@ -40,9 +40,9 @@ if 'index' in data0:
 html = HTML_HEADER
 html += '''
 <form action="/py/test01.py" method="GET">
-Next Term <input type="checkbox" name="next_term" value="yes">
+Next Term <input type="checkbox" name="next_term">
 <br>
-Show Def <input type="checkbox" name="show_def" value="show_def">
+Show Def <input type="checkbox" name="show_def">
 <br>
 <input type="submit" name="submit" value="Submit">
 </form>
@@ -53,14 +53,14 @@ html += '<p>Term: ' + term_list[i] + '</p>'
 
 # Process form submission
 # Maybe need to make a new python file for new form
-if 'next_term' in data0 and data0['next_term'].value == 'yes':
+if 'next_term' in data0 and data0['next_term'].value == 'on':
     i += 1
     if i < len(term_list):
         html += '<p>Next Term: ' + term_list[i] + '</p>'
     else:
         html += '<p>No more terms.</p>'
         i = len(term_list) - 1
-if 'show_def' in data0 and data0['show_def'].value == 'show_def':
+if 'show_def' in data0 and data0['show_def'].value == 'on':
     if i < len(def_list):
         html += '<p>Definition: ' + def_list[i] + '</p>'
 
