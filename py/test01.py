@@ -47,7 +47,6 @@ Show Def <input type="checkbox" name="show_def" value="show_def">
 </form>
 '''
 
-'''
 # Show the current term
 html += '<p>Term: ' + term_list[i] + '</p>'
 
@@ -66,7 +65,6 @@ if 'show_def' in data0 and data0['show_def'].value == 'show_def':
 
 # Update the hidden index value
 html += '<input type="hidden" name="index" value="' + str(i) + '">'
-'''
 
 html += HTML_FOOTER
 print(html)
