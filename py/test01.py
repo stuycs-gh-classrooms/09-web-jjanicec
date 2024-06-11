@@ -29,8 +29,10 @@ if 'terms' in data0:
     terms = data0['terms'].value
 if 'defs' in data0:
     defs = data0['defs'].value
-term_list = iter(terms.split(','))
-def_list = iter(defs.split(','))
+term_list = terms.split(',')
+term_iter = iter(term_list)
+def_list = defs.split(',')
+def_iter = iter(def_list)
 
 # Initialize index i
 i = 0
@@ -49,22 +51,24 @@ Show Def <input type="checkbox" name="show_def">
 '''
 
 # Show the current term
-html += '<p>Term: ' + next(term_list) + '</p>'
+html += '<p>Term: ' + next(term_iter) + '</p>'
 #used to be term_list[i]
 
 # Process form submission
 # Maybe need to make a new python file for new form
 if 'next_term' in data0 and data0['next_term'].value == 'on':
     #i += 1
-    if i < len(term_list):
-        html += '<p>Next Term: ' + next(term_list) + '</p>'
+    #if i < len(term_list):
+    if next(term_iter) != term_list[len(term_list) - 1]:
+        html += '<p>Next Term: ' + next(term_iter) + '</p>'
         #used to be term_list[i]
     else:
         html += '<p>No more terms.</p>'
         #i = len(term_list) - 1
 if 'show_def' in data0 and data0['show_def'].value == 'on':
-    if i < len(def_list):
-        html += '<p>Definition: ' + next(def_list) + '</p>'
+    #if i < len(def_list):
+    if next(def_iter) != def_list[len(def_list) - 1]:
+        html += '<p>Definition: ' + next(def_iter) + '</p>'
 #used to be def_list[i]
 
 # Update the hidden index value
