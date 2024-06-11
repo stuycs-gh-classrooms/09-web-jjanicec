@@ -11,8 +11,7 @@ HTML_HEADER = """
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Bad Quizlet</title>
-<link href="final.css" rel="stylesheet">
+<title>Hello</title>
 </head>
 <body>
 """
@@ -44,18 +43,11 @@ Next Term <input type="checkbox" name="next_term" value="yes">
 <br>
 Show Def <input type="checkbox" name="show_def" value="show_def">
 <br>
-<input type="hidden" name="terms" value="'''
-html += terms
-html += '''"><input type="hidden" name="defs" value="'''
-html += defs
-html += '''">
-<input type="hidden" name="index" value="'''
-html += str(i)
-html += '''">
 <input type="submit" name="submit" value="Submit">
 </form>
 '''
 
+'''
 # Show the current term
 html += '<p>Term: ' + term_list[i] + '</p>'
 
@@ -74,6 +66,7 @@ if 'show_def' in data0 and data0['show_def'].value == 'show_def':
 
 # Update the hidden index value
 html += '<input type="hidden" name="index" value="' + str(i) + '">'
+'''
 
 html += HTML_FOOTER
 print(html)
