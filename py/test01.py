@@ -90,6 +90,8 @@ while i < len(term_list):
     i += 1
 if 'show_def' in data0 and data['show_def'].value == 'on':
     html.replace('rgb(203 247 236);', 'black')
+    html += HTML_FOOTER
+    print(html)
     
 html += HTML_FOOTER
 print(html)
