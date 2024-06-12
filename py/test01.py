@@ -90,12 +90,14 @@ for defs in def_list:
         print(html)
 '''
 
-'''
+
 i = 0
 while i < len(term_list):
     html += '<p>Term: ' + term_list[i] + '</p>'
     html += '<br><p style="color:rgb(203 247 236);">Definition: ' + def_list[i] + '</p>'
     i += 1
+
+'''
 if 'show_def' in data0 and data['show_def'].value == 'on':
     html.replace('rgb(203 247 236);', 'black')
     html += HTML_FOOTER
