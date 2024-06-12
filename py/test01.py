@@ -44,14 +44,13 @@ if 'index' in data0:
 html = HTML_HEADER
 html += '''
 <form action="test001.py" method="GET">
-Show Def <input type="checkbox" name="show_def">
+Show Definitions <input type="radio" name="show_def" value="yes">
 <br>
 <input type="hidden" name="terms" value=" '''
 html += terms
 html += ''' "> <input type="hidden" name="definitions" value=" '''
 html += defs
 html += ''' ">
-'''
 <input type="submit" name="submit" value="Submit">
 </form>
 '''
