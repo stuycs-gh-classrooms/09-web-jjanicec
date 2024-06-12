@@ -34,27 +34,26 @@ term_iter = iter(term_list)
 def_list = defs.split(',')
 def_iter = iter(def_list)
 
+'''
 # Initialize index i
 i = 0
 if 'index' in data0:
     i = int(data0['index'].value)
+'''
 
 html = HTML_HEADER
 html += '''
 <form action="/py/test01.py" method="GET">
-Next Term <input type="checkbox" name="next_term">
-<br>
 Show Def <input type="checkbox" name="show_def">
 <br>
 <input type="submit" name="submit" value="Submit">
 </form>
 '''
-
+'''
 # Show the current term
 html += '<p>Term: ' + next(term_iter) + '</p>'
 #used to be term_list[i]
 
-'''
 # Process form submission
 # Maybe need to make a new python file for new form
 if 'next_term' in data0 and data0['next_term'].value == 'on':
@@ -71,10 +70,10 @@ if 'show_def' in data0 and data0['show_def'].value == 'on':
     if next(def_iter) != def_list[len(def_list) - 1]:
         html += '<p>Definition: ' + next(def_iter) + '</p>'
 #used to be def_list[i]
-'''
 # Update the hidden index value
-#html += '<input type="hidden" name="index" value="' + str(i) + '">'
-
+#html += '<input type="hidden" name="index" value="' + str(i) + '">
+'''
+'''
 for term in term_list:
     if 'next_term' in data0 and data0['next_term'].value == 'on':
         html += '<p>Next Term: ' + term + '</p>'
@@ -83,6 +82,14 @@ for defs in def_list:
     if 'show_def' in data0 and data['show_def'].value == 'on':
         html += '<p>Definition: ' + defs + '</p>'
         print(html)
-
+'''
+i = 0
+while i < len(term_list):
+    html += '<p>Term: ' + term_list[i] + '</p>'
+    html += '<br><p style="color:rgb(203 247 236);">Definition: ' + def_list[i] + '</p>'
+    i += 1
+if 'show_def' in data0 and data['show_def'].value == 'on':
+    html.replace('rgb(203 247 236);', 'black')
+    
 html += HTML_FOOTER
 print(html)
