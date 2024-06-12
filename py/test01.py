@@ -46,6 +46,12 @@ html += '''
 <form action="test001.py" method="GET">
 Show Def <input type="checkbox" name="show_def">
 <br>
+<input type="hidden" name="terms" value=" '''
+html += terms
+html += ''' "> <input type="hidden" name="definitions" value=" '''
+html += defs
+html += ''' ">
+'''
 <input type="submit" name="submit" value="Submit">
 </form>
 '''
