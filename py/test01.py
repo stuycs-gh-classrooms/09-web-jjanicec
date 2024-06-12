@@ -43,7 +43,7 @@ if 'index' in data0:
 
 html = HTML_HEADER
 html += '''
-<form action="/py/test01.py" method="GET">
+<form action="test001.py" method="GET">
 Show Def <input type="checkbox" name="show_def">
 <br>
 <input type="submit" name="submit" value="Submit">
@@ -83,6 +83,8 @@ for defs in def_list:
         html += '<p>Definition: ' + defs + '</p>'
         print(html)
 '''
+
+'''
 i = 0
 while i < len(term_list):
     html += '<p>Term: ' + term_list[i] + '</p>'
@@ -92,6 +94,7 @@ if 'show_def' in data0 and data['show_def'].value == 'on':
     html.replace('rgb(203 247 236);', 'black')
     html += HTML_FOOTER
     print(html)
-    
+'''
+
 html += HTML_FOOTER
 print(html)
